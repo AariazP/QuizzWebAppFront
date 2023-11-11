@@ -1,6 +1,6 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import { Chart } from 'angular-highcharts';
-import {GenerateComponentService} from "../generate-component.service";
+import {GenerateComponentService} from "../../generate-component.service";
 
 @Component({
   selector: 'app-chart',

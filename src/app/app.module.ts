@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import {ChartModule} from "angular-highcharts";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { ChartComponent } from './chart/chart.component';
-import { VistaAdminComponent } from './admin/vista-admin/vista-admin.component';
-import { NavComponent } from './nav/nav.component';
+import { LoginComponent } from './components/login/login.component';
+import { ChartComponent } from './components/chart/chart.component';
+import { VistaAdminComponent } from './components/admin/vista-admin/vista-admin.component';
+import { NavComponent } from './components/nav/nav.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { EstudianteComponent } from './components/estudiante/estudiante.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {HttpClientModule} from "@angular/common/http";
     LoginComponent,
     ChartComponent,
     VistaAdminComponent,
-    NavComponent
+    NavComponent,
+    EstudianteComponent
   ],
   imports: [
     BrowserModule,

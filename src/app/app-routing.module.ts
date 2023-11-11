@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {LoginComponent} from "./login/login.component";
-import {VistaAdminComponent} from "./admin/vista-admin/vista-admin.component";
+import {LoginComponent} from "./components/login/login.component";
+import {VistaAdminComponent} from "./components/admin/vista-admin/vista-admin.component";
+import {EstudianteComponent} from "./components/estudiante/estudiante.component";
 
 const routes: Routes = [
   {
@@ -9,8 +10,12 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path:'admin',
+    path:'administrador',
     component: VistaAdminComponent
+  },
+  {
+    path:'estudiante',
+    component: EstudianteComponent
   }
 ];
 
