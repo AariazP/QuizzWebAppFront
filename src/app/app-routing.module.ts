@@ -5,8 +5,8 @@ import {VistaAdminComponent} from "./admin/vista-admin/vista-admin.component";
 
 const routes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent
+    path: '',
+    component: LoginComponent,
   },
   {
     path:'admin',

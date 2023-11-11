@@ -3,12 +3,10 @@ export class Alertas{
 
   public static mostrarAlertaError(titulo:string, mensaje:string):void{
     Swal.fire({
-      title: "The Internet?",
-      text: "That thing is still around?",
+      title: mensaje,
+      text: titulo,
       icon: "question"
-    }).then(r => {
-        console.log(r);
-    });
+    }).then();
   }
 
 
