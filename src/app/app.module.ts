@@ -11,6 +11,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { EstudianteComponent } from './components/estudiante/estudiante.component';
 import { PonderadoChartComponent } from './components/ponderado-chart/ponderado-chart.component';
+import { TemasChartComponent } from './components/temas-chart/temas-chart.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { PonderadoChartComponent } from './components/ponderado-chart/ponderado-
     NavComponent,
     EstudianteComponent,
     PonderadoChartComponent,
+    TemasChartComponent,
   ],
   imports: [
     BrowserModule,

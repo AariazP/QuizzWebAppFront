@@ -26,4 +26,8 @@ export class ApiConsumerService {
   getAverage(): Observable<any> {
     return this.http.get(`${this.apiUrl}/estudiante/ponderado/${this.usuarioActivo.getId()}`);
   }
+
+  getThemes(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/estudiante/temas/${this.usuarioActivo.getId()}`);
+  }
 }
