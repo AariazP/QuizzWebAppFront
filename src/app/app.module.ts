@@ -4,12 +4,13 @@ import {ChartModule} from "angular-highcharts";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { ChartComponent } from './components/chart/chart.component';
+import { ChartComponent } from './components/chart-admin/chart.component';
 import { VistaAdminComponent } from './components/admin/vista-admin/vista-admin.component';
 import { NavComponent } from './components/nav/nav.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { EstudianteComponent } from './components/estudiante/estudiante.component';
+import { PonderadoChartComponent } from './components/ponderado-chart/ponderado-chart.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { EstudianteComponent } from './components/estudiante/estudiante.componen
     VistaAdminComponent,
     NavComponent,
     EstudianteComponent,
+    PonderadoChartComponent,
   ],
   imports: [
     BrowserModule,

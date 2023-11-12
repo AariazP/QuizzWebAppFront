@@ -5,6 +5,7 @@ import {LoginServiceService} from "../../core/login-service.service";
 import {DtoLogin} from "../../DTO/dtoLogin";
 import {DtoLoginResponse} from "../../DTO/dtoLoginResponse";
 import {Router} from "@angular/router";
+import {UsuarioActivoService} from "../../core/usuario-activo.service";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent {
 
   public iniciarSesionForm!:FormGroup;
 
-  constructor(private fb:FormBuilder, private loginService:LoginServiceService, private router:Router) {
+  constructor(private fb:FormBuilder, private loginService:LoginServiceService, private router:Router,
+              private usuarioActivo:UsuarioActivoService) {
     this.iniciarSesionForm = fb.group({
       correo: [''],
       contrasenia: ['']
@@ -33,6 +35,9 @@ export class LoginComponent {
     this.loginService.login(dtoLogin).subscribe(
 
       (response:DtoLoginResponse) => {
+
+        this.usuarioActivo.setId(response.id);
+        this.usuarioActivo.setRol(response.rol);
 
         if(response.rol == 'Estudiante'){
           this.router.navigate(['/estudiante'])

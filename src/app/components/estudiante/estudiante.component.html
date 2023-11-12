@@ -1,1 +1,24 @@
-<p>estudiante works!</p>
+<div id="div-background" class="vh-100 vw-100">
+
+  <div class="row">
+    <app-nav></app-nav>
+  </div>
+
+  <div>
+    <h1 class="text-center fw-semibold text-light">Estadisticas del estudiante</h1>
+    <h4 class="text-center fw-lighter text-light">id :{{id}} </h4>
+  </div>
+
+  <div class="row">
+
+
+    <div class="div-chart vw-100" id="left-chart">
+      <h3 class="text-center fw-light">Estudiantes por Materias</h3>
+      <app-ponderado-chart></app-ponderado-chart>
+    </div>
+
+  </div>
+
+
+</div>
+
