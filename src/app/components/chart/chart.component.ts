@@ -1,9 +1,11 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component } from '@angular/core';
 import { Chart } from 'angular-highcharts';
-import {GenerateComponentService} from "../../core/generate-component.service";
-import {ApiConsumerService} from "../../core/api-consumer.service";
+import { ApiConsumerService } from "../../core/api-consumer.service";
+import * as Highcharts from 'highcharts';
+import * as highchartsExporting from 'highcharts/modules/exporting';
 
-
+// @ts-ignore
+highchartsExporting(Highcharts);
 
 @Component({
   selector: 'app-chart',
@@ -14,18 +16,14 @@ export class ChartComponent {
 
   public lineChart!: Chart;
 
-  constructor(private generateComponentService: GenerateComponentService, private apiConsumer: ApiConsumerService) {
-      this.inicializarLineChart();
+  constructor(private apiConsumer: ApiConsumerService) {
+    this.inicializarLineChart();
   }
-
 
   public inicializarLineChart(): void {
     this.apiConsumer.getStudents().subscribe(data => {
-
-     let names: string[] = [];
-
-      for(let i = 0; i < data.length; i++){
-
+      let names: string[] = [];
+      for (let i = 0; i < data.length; i++) {
         names.push(data[i].name);
       }
 
@@ -53,12 +51,7 @@ export class ChartComponent {
         }
       });
     });
-
   }
-
-
-
-
 
   pieChart = new Chart({
     chart: {
@@ -76,8 +69,22 @@ export class ChartComponent {
     } as any]
   });
 
-
-  addPDF() {
-    this.generateComponentService.addChart(this.lineChart);
+  makePDF() {
+    if (this.lineChart && this.lineChart.ref) {
+      // @ts-ignore
+      this.lineChart.ref.exportChart({
+        type: 'application/pdf',
+      }, {
+        chart: {
+          backgroundColor: '#FFFFFF'
+        },
+        title: {
+          style: {
+            color: '#000000',
+            font: 'bold 16px "Trebuchet MS", Verdana, sans-serif'
+          }
+        }
+      });
+    }
   }
 }
