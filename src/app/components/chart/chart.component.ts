@@ -21,6 +21,14 @@ export class ChartComponent {
 
   public inicializarLineChart(): void {
     this.apiConsumer.getStudents().subscribe(data => {
+
+     let names: string[] = [];
+
+      for(let i = 0; i < data.length; i++){
+
+        names.push(data[i].name);
+      }
+
       this.lineChart = new Chart({
         chart: {
           type: 'line'
@@ -34,9 +42,13 @@ export class ChartComponent {
         series: [{
           name: 'Pacients admitted',
           data: data
-        } as any]
+        } as any],
+        xAxis: {
+          categories: names
+        }
       });
     });
+
   }
 
 
