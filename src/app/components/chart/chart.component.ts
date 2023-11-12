@@ -53,22 +53,6 @@ export class ChartComponent {
     });
   }
 
-  pieChart = new Chart({
-    chart: {
-      type: 'pie'
-    },
-    title: {
-      text: 'Piechart'
-    },
-    credits: {
-      enabled: false
-    },
-    series: [{
-      name: 'Pacients admitted',
-      data: [10, 2, 3, 6, 9, 17, 20, 10, 5, 2, 16]
-    } as any]
-  });
-
   makePDF() {
     if (this.lineChart && this.lineChart.ref) {
       // @ts-ignore
@@ -82,6 +66,40 @@ export class ChartComponent {
           style: {
             color: '#000000',
             font: 'bold 16px "Trebuchet MS", Verdana, sans-serif'
+          }
+        },
+        subtitle: {
+          style: {
+            color: '#666666',
+            font: 'bold 12px "Trebuchet MS", Verdana, sans-serif'
+          }
+        },
+        xAxis: {
+          labels: {
+            style: {
+              color: '#000000'
+            }
+          }
+        },
+        yAxis: {
+          title: {
+            style: {
+              color: '#000000'
+            }
+          },
+          labels: {
+            style: {
+              color: '#000000'
+            }
+          }
+        },
+        legend: {
+          itemStyle: {
+            font: '9pt Trebuchet MS, Verdana, sans-serif',
+            color: 'black'
+          },
+          itemHoverStyle: {
+            color: 'gray'
           }
         }
       });
