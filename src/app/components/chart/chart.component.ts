@@ -34,17 +34,22 @@ export class ChartComponent {
           type: 'line'
         },
         title: {
-          text: 'Estudiantes por materia'
+          text: ' Notas de los estudiantes en los quizzes'
         },
         credits: {
           enabled: false
         },
         series: [{
-          name: 'Pacients admitted',
+          name: 'Estudiantes',
           data: data
         } as any],
         xAxis: {
           categories: names
+        },
+        yAxis: {
+          title: {
+            text: 'Nota'
+          }
         }
       });
     });

@@ -1,27 +1,21 @@
 .div-chart {
 
-  background-color: rgba(169, 171, 169, 0.55);
+  background-color: rgba(77, 77, 77, 0.55);
 
 }
 
 #left-chart {
   min-height: 700px;
-  margin-left: 30px;
   border-radius: 5px;
   margin-top: 30px;
 }
 
 #left-chart {
   padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
 }
 
-#right-chart {
-  min-height: 900px;
-  padding-top: 20px;
-  margin-right: 40px;
-  border-radius: 5px;
-  margin-top: 30px;
-}
 
 #div-background{
   background-color: rgb(38, 38, 38);
