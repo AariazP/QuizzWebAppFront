@@ -18,7 +18,7 @@ import { EstudianteComponent } from './components/estudiante/estudiante.componen
     ChartComponent,
     VistaAdminComponent,
     NavComponent,
-    EstudianteComponent
+    EstudianteComponent,
   ],
   imports: [
     BrowserModule,

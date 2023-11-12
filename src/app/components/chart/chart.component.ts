@@ -1,18 +1,39 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { Chart } from 'angular-highcharts';
-import {GenerateComponentService} from "../../generate-component.service";
+import {GenerateComponentService} from "../../core/generate-component.service";
+import {ApiConsumerService} from "../../core/api-consumer.service";
+import {Point} from "highcharts/dashboards/es-modules/Dashboards/Plugins/HighchartsTypes";
+
+
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css']
 })
-export class ChartComponent {
+export class ChartComponent implements OnInit{
 
-  generateComponentService: GenerateComponentService;
 
-  constructor(generateComponentService: GenerateComponentService) {
-    this.generateComponentService = generateComponentService;
+  constructor(private generateComponentService: GenerateComponentService, private apiConsumer: ApiConsumerService) {
+
+  }
+
+  ngOnInit() {
+    this.apiConsumer.getStudentsData().subscribe(data => {
+      const seriesData = data.names.map((name, index) => ({ name, y: data.notes[index] }));
+
+      this.lineChart.addSeries({
+        name: 'Estudiantes',
+        data: seriesData,
+        type: 'line',
+      } as any, true, true);
+
+      
+    }
+
+    );
+
+
   }
 
   lineChart = new Chart({
@@ -20,28 +41,29 @@ export class ChartComponent {
       type: 'line'
     },
     title: {
-      text: 'Estudiantes por materia'
+      text: 'Notas de estudiantes'
     },
-    credits: {
-      enabled: false
+    subtitle: {
+      text: 'Source: ' +
+        '<a href="https://es.wikipedia.org/wiki/Calificación_escolar#:~:text=En%20las%20escuelas%20primarias%20las,y' +
+        '%20el%205%20la%20peor.&text=Para%20aprobar%20el%20curso%20y,volver%20a%20cursar%20el%20grado. ' +
+        'target="_blank">Wikipedia.com</a>'
     },
-    series: [{
-      name: 'Pacients admitted',
-      data: [
-        { name: 'January', y: 10, x:'January' },
-        { name: 'February', y: 2 },
-        { name: 'March', y: 3 },
-        { name: 'April', y: 6 },
-        { name: 'May', y: 9 },
-        { name: 'June', y: 17 },
-        { name: 'July', y: 20 },
-        { name: 'August', y: 10 },
-        { name: 'September', y: 5 },
-        { name: 'October', y: 2 },
-        { name: 'November', y: 16 }
-      ]
-    } as any]
+    yAxis: {
+      title: {
+        text: 'Notas'
+      }
+    },
+    plotOptions: {
+      line: {
+        dataLabels: {
+          enabled: true
+        },
+        enableMouseTracking: false
+      }
+    }
   });
+
 
 
 
