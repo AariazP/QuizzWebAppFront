@@ -30,4 +30,17 @@ export class ApiConsumerService {
   getThemes(): Observable<any> {
     return this.http.get(`${this.apiUrl}/estudiante/temas/${this.usuarioActivo.getId()}`);
   }
+
+  getNotas(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/docente/notas/${this.usuarioActivo.getId()}`);
+
+  }
+
+  getNotasEstudiante(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/estudiante/notas/${this.usuarioActivo.getId()}`);
+  }
+
+  getQuizzesDocente(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/docente/quizzes/${this.usuarioActivo.getId()}`);
+  }
 }

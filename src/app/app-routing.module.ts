@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from "./components/login/login.component";
 import {VistaAdminComponent} from "./components/admin/vista-admin/vista-admin.component";
 import {EstudianteComponent} from "./components/estudiante/estudiante.component";
+import { DocenteComponent } from './components/docente/docente.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,11 @@ const routes: Routes = [
   {
     path:'estudiante',
     component: EstudianteComponent
-  }
+  },
+  {
+    path: 'docente',
+    component: DocenteComponent,
+  },
 ];
 
 @NgModule({

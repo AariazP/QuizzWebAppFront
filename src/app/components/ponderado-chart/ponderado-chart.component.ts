@@ -20,7 +20,6 @@ export class PonderadoChartComponent {
   public inicializarLineChart(): void {
     this.apiConsumer.getAverage().subscribe(data => {
 
-      console.log(data);
 
       this.barChart = new Chart({
         chart: {

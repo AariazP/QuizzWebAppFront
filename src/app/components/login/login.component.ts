@@ -46,7 +46,7 @@ export class LoginComponent {
           this.router.navigate(['/administrador'])
         }
         else if(response.rol == 'Docente'){
-
+          this.router.navigate(['/docente'])
         }
 
 
